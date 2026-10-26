@@ -1,1 +1,1 @@
-{"name":"GutWP","version":"0.3.0","categories":["json","strings","arrays","objects","numbers","urls","wordpress"],"policy":"Prefer mature libraries and native runtime primitives; wrappers remain small and domain-neutral."}
+{"name":"GutWP","version":"0.4.0","categories":["json","strings","arrays","objects","numbers","urls","collections","validation","wordpress"],"equivalents":{"lodash-es":"native PHP collection facades","validator":"Symfony Validator + PHP filters"}}
