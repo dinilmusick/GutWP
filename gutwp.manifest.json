@@ -1,1 +1,1 @@
-{"package":"dinilmusick/gutwp","packageType":"global-utility","version":"0.1.0","categories":["arrays","objects","strings","numbers","json","urls","wordpress"]}
+{"name":"GutWP","version":"0.2.0","categories":["json","strings","arrays","objects","numbers","urls","wordpress"],"policy":"Prefer mature libraries and native runtime primitives; wrappers remain small and domain-neutral."}
