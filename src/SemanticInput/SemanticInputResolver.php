@@ -3,6 +3,9 @@ declare(strict_types=1);
 
 namespace GutWP\SemanticInput;
 
+require_once __DIR__ . '/SemanticInputSchema.php';
+require_once __DIR__ . '/SemanticInputResolution.php';
+
 final class SemanticInputResolver {
     public static function resolveDeterministic(string $input, SemanticInputSchema $schema): ?SemanticInputResolution {
         $trimmed = trim($input);

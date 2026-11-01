@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace GutWP\Api;
 
+require_once __DIR__ . '/ApiTypes.php';
+
 final class ApiRegistry {
     /** @var array<string, ApiDefinition> */
     private static array $definitions = [];

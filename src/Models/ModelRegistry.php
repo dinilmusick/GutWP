@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace GutWP\Models;
 
+require_once __DIR__ . '/ModelTypes.php';
+
 final class ModelRegistry {
     /** @var array<string, ModelMetadata> */
     private static array $models = [];
