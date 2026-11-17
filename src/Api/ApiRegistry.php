@@ -8,29 +8,37 @@ require_once __DIR__ . '/ApiTypes.php';
 final class ApiRegistry {
     /** @var array<string, ApiDefinition> */
     private static array $definitions = [];
+    private static bool $defaultsLoaded = false;
+
+    /** Always register built-ins before custom definitions, regardless of call order. */
+    private static function ensureDefaults(): void {
+        if (self::$defaultsLoaded) return;
+        self::$defaultsLoaded = true;
+        self::registerDefaults();
+    }
 
     public static function all(): array {
-        if (empty(self::$definitions)) {
-            self::registerDefaults();
-        }
+        self::ensureDefaults();
         return array_values(self::$definitions);
     }
 
     public static function get(string $id): ApiDefinition {
-        if (empty(self::$definitions)) {
-            self::registerDefaults();
-        }
+        self::ensureDefaults();
         return self::$definitions[$id] ?? throw new \InvalidArgumentException("Unknown GutWP API '$id'.");
     }
 
     public static function has(string $id): bool {
-        if (empty(self::$definitions)) {
-            self::registerDefaults();
-        }
+        self::ensureDefaults();
         return isset(self::$definitions[$id]);
     }
 
     public static function register(ApiDefinition $def): void {
+        self::ensureDefaults();
+        if (isset(self::$definitions[$def->id])) {
+            // Repeated identical registrations are safe; changed ownership is not.
+            if (self::$definitions[$def->id] == $def) return;
+            throw new \LogicException("GutWP API '{$def->id}' is already registered.");
+        }
         self::$definitions[$def->id] = $def;
     }
 
