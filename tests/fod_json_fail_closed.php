@@ -42,7 +42,7 @@ check(FodRuntime::executeGutApi('gutwp.json.encode', ['value' => null]) === 'nul
 rejects(static fn() => FodRuntime::executeGutApi('gutwp.arrays.chunk', ['values' => [1, 2, 3]]), InvalidArgumentException::class);
 rejects(static fn() => FodRuntime::executeGutApi('gutwp.arrays.chunk', ['size' => 2]), InvalidArgumentException::class);
 rejects(static fn() => FodRuntime::executeGutApi('gutwp.json.encode', []), InvalidArgumentException::class);
-rejects(static fn() => FodRuntime::executeGutApi('gutwp.arrays.chunk', ['values' => [], 'size' => 0]), RangeError::class);
+rejects(static fn() => FodRuntime::executeGutApi('gutwp.arrays.chunk', ['values' => [], 'size' => 0]), RangeException::class);
 
 // A custom registry definition with a built-in display name may not execute
 // under another capability's authority.
