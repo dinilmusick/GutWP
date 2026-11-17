@@ -10,4 +10,5 @@ jobs:
       - run: php tools/validate.php
       - run: composer validate --strict
       - run: php tests/fod_json_fail_closed.php
+      - run: php tests/api-registry-invariants.php
       - run: php tests/json_wp_fail_closed.php
