@@ -32,7 +32,7 @@ final class Arrays {
 
     public static function chunk(array $values, int $size): array {
         if ($size <= 0) {
-            throw new \RangeError('size must be a positive integer');
+            throw new \RangeException('size must be a positive integer');
         }
         return array_chunk($values, $size);
     }
